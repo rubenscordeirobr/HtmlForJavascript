@@ -6,7 +6,7 @@ namespace HtmlForJavascript
 {
     internal static class ThemeColorHelper
     {
-        public static bool IsThemeLight => CurrentColorTheme == ThemeColor.Light;
+        public static bool IsLightTheme => ColorTheme == ColorTheme.Light;
         public static Color TextColor
         {
             get
@@ -16,7 +16,7 @@ namespace HtmlForJavascript
             }
         }
 
-        internal static ThemeColor CurrentColorTheme
+        internal static ColorTheme ColorTheme
         {
             get
             {
@@ -24,14 +24,14 @@ namespace HtmlForJavascript
                 var luminance = (bgColor.R * 0.2126) + (bgColor.G * 0.7152) + (bgColor.B * 0.0722);
                 if (luminance > (255 / 2))
                 {
-                    return ThemeColor.Light;
+                    return ColorTheme.Light;
                 }
-                return ThemeColor.Dark;
+                return ColorTheme.Dark;
             }
         }
     }
 
-    internal enum ThemeColor
+    internal enum ColorTheme
     {
         Light,
         Dark
